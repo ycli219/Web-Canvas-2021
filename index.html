@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+
+	<link rel="stylesheet"  href="cs.css">
+
+</head>
+<body>
+	
+	
+	<img src="./img/title.png" style="position:absolute;top:10px;left:550px;">
+	<img src="./img/36.png" style="position:absolute;top:770px;left:1505px;">
+	<img src="./img/28.png" style="position:absolute;top:770px;left:1390px;">
+	<img src="./img/44.png" style="position:absolute;top:770px;left:1620px;">
+	
+
+	<canvas id="myCanvas"></canvas>
+	<canvas id="palette"></canvas>
+
+
+	<div class="slidecontainer">
+		<input type="range" min="1" max="100" value="50" class="slider" id="myRange" style="position:fixed; top:205px; left:200px;">
+		<input type="range" min="28" max="44" value="36" step="2" class="slider2" id="fontsize" style="position:fixed; top:750px; left:1400px;">
+		<input type="range" min="0" max="1" value="1" step="0.01" class="slider3" id="transparent" style="position:fixed; top:265px; left:200px;">
+	</div>
+
+	
+	<label style="background-image:url(./img/pencil.png); border-radius:50%; background-color:white; position:fixed; background-repeat:no-repeat; background-position:center; left:80px; top:20px;">
+		<input type="button" class="button" onClick="clickfun('pencil')"/>
+	</label>
+
+
+	<label style="background-image:url(./img/rainbow.png); border-radius:50%; background-color:white; position:fixed; background-repeat:no-repeat; background-position:center; left:1180px; top:300px;">
+		<input type="button" class="button" onClick="clickfun('rainbow')"/>
+	</label>
+
+
+	<label style="background-image:url(./img/eraser.png); border-radius:50%; background-color:white; position:fixed; background-repeat:no-repeat; background-position:center; left:300px; top:20px;">
+		<input type="button" class="button" onClick="clickfun('eraser')"/>
+	</label>
+
+
+	<label style="background-image:url(./img/reset.png); border-radius:50%; background-color:white; position:fixed; background-repeat:no-repeat; background-position:center; left:1350px; top:480px;">
+		<input type="button" class="button" onClick="clickfun('reset')"/>
+	</label>
+
+
+	<label style="background-image:url(./img/undo1.png); border-radius:50%; background-color:white; position:fixed; background-repeat:no-repeat; background-position:center; left:1180px; top:480px;">
+		<input type="button" class="button" onClick="clickfun('undo')"/>
+	</label>
+
+
+	<label style="background-image:url(./img/redo1.png); border-radius:50%; background-color:white; position:fixed; background-repeat:no-repeat; background-position:center; left:1520px; top:480px;">
+		<input type="button" class="button" onClick="clickfun('redo')"/>
+	</label>
+
+	
+	<div>
+		<input type="file" id="btn_file" style="display:none;">
+		<label style="background-image:url(./img/upload.png); border-radius:50%; background-color:white; position:fixed; background-repeat:no-repeat; background-position:center; left:30px; top:650px;">
+			<input type="button" class="button" onClick="clickfun('upload')"/>
+		</label>
+	</div>
+
+
+	<div>	
+		<a id="download" download="mycanvas.png" href="" onclick="download_img(this);">
+			<label style="background-image:url(./img/download.png); border-radius:50%; background-color:white; position:fixed; background-repeat:no-repeat; background-position:center; left:200px; top:650px;">
+				<input type="button" class="button"/>
+			</label>
+		</a>
+	</div>
+
+
+	<div>
+		<label style="background-image:url(./img/input.png); border-radius:50%; background-color:white; position:fixed; background-repeat:no-repeat; background-position:center; left:1230px; top:650px;">
+			<input type="button" class="button" onClick="clickfun('input')"/>
+		</label>
+	</div>
+
+
+	<label style="background-image:url(./img/circle.png); border-radius:50%; background-color:white; position:fixed; background-repeat:no-repeat; background-position:center; left:30px; top:480px;">
+		<input type="button" class="button" onClick="clickfun('circle')"/>
+	</label>
+
+
+	<label style="background-image:url(./img/rectangle.png); border-radius:50%; background-color:white; position:fixed; background-repeat:no-repeat; background-position:center; left:200px; top:480px;">
+		<input type="button" class="button" onClick="clickfun('rectangle')"/>
+	</label>
+
+
+	<label style="background-image:url(./img/triangle.png); border-radius:50%; background-color:white; position:fixed; background-repeat:no-repeat; background-position:center; left:370px; top:480px;">
+		<input type="button" class="button" onClick="clickfun('triangle')"/>
+	</label>
+
+
+	<div class="select_style" > 
+		<select name="wordtype" id="wordtype" onchange="print_value();">
+			<option value="Courier New" id="op1" selected>courier-new</option>
+			<option value="Consolas" id="op2" >consolas</option>
+			<option value="sans-serif" id="op3">sans-serif</option>
+		</select>
+	</div> 
+
+
+	<label style="background-image:url(./img/bucket.png); border-radius:50%; background-color:white; position:fixed; background-repeat:no-repeat; background-position:center; left:370px; top:650px;">
+		<input type="button" class="button" onClick="clickfun('bucket')"/>
+	</label>
+
+
+	<div style="position:fixed; top: 285px; left: 75px;"><p>LineCap:</p></div>
+	<div class="singlesele" style="background-color:rgba(255,255,255,0.7); border-radius:10px; font-family: Consolas; font-weight:bold; font-size:28px; position:fixed; top: 365px; left: 75px;">
+		<input type="radio" id="butt" name="linecap" onclick="handleClick(this);" value="butt">
+		<label for="butt">butt</label><br>
+		<input type="radio" id="round" name="linecap" onclick="handleClick(this);" value="round" checked>
+		<label for="round">round</label><br>
+		<input type="radio" id="square" name="linecap" onclick="handleClick(this);" value="square">
+		<label for="square">square</label>
+	</div>
+
+
+	<div style="position:fixed; top: 140px; left: 20px;"><p>Brush Size:</p></div>
+	<div style="position:fixed; top: 196px; left: 20px;"><p>Opacity:</p></div>
+
+	
+	<script src="js.js"></script>
+</body>
+</html>

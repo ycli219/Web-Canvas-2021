@@ -1,0 +1,236 @@
+body {
+	background-image: url("./img/BK.jpg");
+}
+
+
+#palette {
+	width: 320px;
+	height: 190px;
+
+	border-radius: 5%; 
+	border-style: none;
+
+	position: fixed;       
+    top: 260px;
+	left: 1360px;
+    
+	cursor: crosshair; 
+}
+
+
+#myCanvas {
+	width: 550px;
+	height: 550px;
+
+	border-radius: 5%; 
+	
+	background-color: white;
+
+	position: fixed;       
+    left: 560px;            
+    top: 200px;
+    
+	animation: bor_color 4s infinite linear;
+
+	cursor: grab; 
+}
+
+
+@keyframes bor_color { 
+	0%    {border: 20px double #00BFFF;}
+    25%   {border: 20px double #0000FF;}
+	37.5% {border: 20px double #00BFFF;}
+    50%   {border: 20px double #0000FF;}
+    100%  {border: 20px double #00BFFF;}
+}
+
+
+.button {
+	width: 150px; 
+	height: 150px; 
+
+	background-color: transparent; 
+	background-repeat: no-repeat;
+	background-position: center;
+
+	border-radius: 50%;
+	border: 8px dotted;
+	border-color: #63B8FF;
+
+	animation: spin 10s linear infinite;
+}
+
+.button:hover { 
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	border-color: #000000;
+ }
+
+ @keyframes spin { 
+	100% { 
+	  transform: rotateZ(360deg);
+	}
+  }
+
+
+.slider {
+	-webkit-appearance: none;
+	width: 17%;
+	height: 15px;
+	border-radius: 10px;
+	background: #63B8FF;
+	outline: none;
+	opacity: 0.85;
+}
+  
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 50px;
+	height: 50px;
+	background: url('./img/brush.png');
+	cursor: grabbing;
+	opacity: 1;
+}
+
+
+.select_style {
+	width:155px; 
+	height:32px; 
+	overflow:hidden; 
+	background:#63B8FF; 
+	border:3px solid #63B8FF(255, 255, 255); 
+	opacity: 0.85;
+	border-radius:10px; 
+	position:fixed;
+	top: 670px;
+	left: 1400px;
+} 
+.select_style select { 
+	padding-left:6px;
+	padding-bottom:4px;
+	background:transparent; 
+	width:268px; 
+	font-size:22px; 
+	font-weight:bold;
+	border:none; 
+	height:34px; 
+	font-family: "Consolas"
+} 
+
+#op1 { font-family: "Courier New"; }
+#op2 { font-family: "Consolas"; }
+#op3 { font-family: "sans-serif"; }
+
+
+.slider2 {
+	-webkit-appearance: none;
+	width: 16%;
+	height: 15px;
+	border-radius: 10px;
+	background: #63B8FF;
+	outline: none;
+	opacity: 0.85;
+}
+  
+.slider2::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 40px;
+	height: 50px;
+	background: url('./img/cursor_typing.png');
+	background-repeat:no-repeat;
+	cursor: grabbing;
+	opacity: 1;
+}
+
+
+
+.slider3 {
+	-webkit-appearance: none;
+	width: 17%;
+	height: 15px;
+	border-radius: 10px;
+	background: #63B8FF;
+	outline: none;
+	opacity: 0.85;
+}
+  
+.slider3::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 50px;
+	height: 50px;
+	background: url('./img/sun.png');
+	background-repeat:no-repeat;
+	cursor: grabbing;
+	opacity: 1;
+}
+
+  
+p {
+	font-family: Consolas; 
+	font-weight: bold; 
+	font-size: 32px;
+}
+
+
+input[type="radio"] {
+  appearance: none;
+}
+
+input[type="radio"] + label {
+  cursor: pointer;
+  position: relative;
+  padding-left: 35px;
+}
+
+input[type="radio"] + label::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #686de0;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+input[type="radio"] + label::after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #686de0;
+  background: #686de0;
+  border-radius: 50%;
+  position: absolute;
+  left: 5.3px;
+  bottom: 13px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+input[type="radio"]:checked + label::after {
+  opacity: 1;
+}
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
